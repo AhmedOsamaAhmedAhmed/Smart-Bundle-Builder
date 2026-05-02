@@ -1,0 +1,60 @@
+/* Accessibility styles */
+:focus {
+  outline: 2px solid #1677ff;
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #1677ff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(22, 119, 255, 0.2);
+}
+
+/* Skip to content link - for keyboard users */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #1677ff;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* High contrast focus for disabled buttons */
+button:disabled:focus-visible {
+  outline: 2px solid #ff4d4f;
+}
+
+/* Ensure sufficient color contrast */
+.ant-btn-primary {
+  background-color: #1677ff;
+}
+
+.ant-alert-warning {
+  border-left: 4px solid #faad14;
+}
+
+.ant-alert-error {
+  border-left: 4px solid #ff4d4f;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

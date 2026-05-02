@@ -1,0 +1,551 @@
+@import './a11y.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ============================================
+   DARK MODE STYLES - تحسين رؤية جميع النصوص
+   ============================================ */
+
+.dark-theme {
+  background-color: #141414;
+}
+
+.dark-theme body {
+  background-color: #141414;
+}
+
+/* تحسين جميع النصوص في Dark Mode */
+.dark-theme,
+.dark-theme * {
+  color-scheme: dark;
+}
+
+.dark-theme .ant-typography,
+.dark-theme .ant-typography h1,
+.dark-theme .ant-typography h2,
+.dark-theme .ant-typography h3,
+.dark-theme .ant-typography h4,
+.dark-theme .ant-typography h5,
+.dark-theme .ant-typography p,
+.dark-theme .ant-typography span,
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme p,
+.dark-theme span,
+.dark-theme div,
+.dark-theme label {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.dark-theme .ant-typography-secondary,
+.dark-theme .ant-text-secondary,
+.dark-theme .ant-typography.ant-typography-secondary,
+.dark-theme .ant-typography-secondary > * {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.dark-theme .ant-typography.ant-typography-danger {
+  color: #ff4d4f !important;
+}
+
+.dark-theme .ant-typography.ant-typography-warning {
+  color: #faad14 !important;
+}
+
+.dark-theme .ant-typography.ant-typography-success {
+  color: #52c41a !important;
+}
+
+/* Cards */
+.dark-theme .ant-card {
+  background-color: #1f1f1f;
+  border-color: #303030;
+}
+
+.dark-theme .ant-card-head {
+  border-bottom-color: #303030;
+  background-color: #1f1f1f;
+}
+
+.dark-theme .ant-card-head-title,
+.dark-theme .ant-card-head .ant-typography {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.dark-theme .ant-card-body .ant-typography {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.dark-theme .ant-card-bordered {
+  border-color: #303030;
+}
+
+.dark-theme .ant-card-actions {
+  background-color: #1f1f1f;
+  border-top-color: #303030;
+}
+
+/* أسماء المنتجات في البطاقات */
+.dark-theme .ant-card .ant-typography strong,
+.dark-theme .ant-card .ant-typography b,
+.dark-theme .ant-card strong,
+.dark-theme .ant-card b {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* النصوص الصغيرة والثانوية */
+.dark-theme .ant-card .ant-typography-secondary,
+.dark-theme .ant-card .ant-text-secondary {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* أزرار */
+.dark-theme .ant-btn-default {
+  background-color: #1f1f1f;
+  border-color: #434343;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-btn-default:hover {
+  background-color: #2a2a2a;
+  border-color: #1677ff;
+  color: #1677ff;
+}
+
+.dark-theme .ant-btn-primary {
+  background-color: #1677ff;
+  border-color: #1677ff;
+  color: #fff;
+}
+
+.dark-theme .ant-btn-primary:hover {
+  background-color: #0958d9;
+  border-color: #0958d9;
+}
+
+.dark-theme .ant-btn-text {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-btn-text:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #1677ff;
+}
+
+.dark-theme .ant-btn-dangerous {
+  color: #ff4d4f;
+}
+
+.dark-theme .ant-btn-dangerous:hover {
+  color: #ff7875;
+}
+
+.dark-theme .ant-btn-link {
+  color: #1677ff;
+}
+
+.dark-theme .ant-btn-link:hover {
+  color: #0958d9;
+}
+
+/* Progress Bar */
+.dark-theme .ant-progress-text {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-progress-bg {
+  background-color: #1677ff;
+}
+
+.dark-theme .ant-progress-steps-item {
+  background-color: #303030;
+}
+
+.dark-theme .ant-progress-steps-item-active {
+  background-color: #1677ff;
+}
+
+/* Alerts */
+.dark-theme .ant-alert-success {
+  background-color: #162312;
+  border-color: #274916;
+}
+
+.dark-theme .ant-alert-success .ant-alert-message,
+.dark-theme .ant-alert-success .ant-alert-description {
+  color: #49aa19 !important;
+}
+
+.dark-theme .ant-alert-warning {
+  background-color: #2b2118;
+  border-color: #594214;
+}
+
+.dark-theme .ant-alert-warning .ant-alert-message,
+.dark-theme .ant-alert-warning .ant-alert-description {
+  color: #d89614 !important;
+}
+
+.dark-theme .ant-alert-error {
+  background-color: #2a1215;
+  border-color: #58181c;
+}
+
+.dark-theme .ant-alert-error .ant-alert-message,
+.dark-theme .ant-alert-error .ant-alert-description {
+  color: #e84749 !important;
+}
+
+.dark-theme .ant-alert-info {
+  background-color: #111b26;
+  border-color: #153450;
+}
+
+.dark-theme .ant-alert-info .ant-alert-message,
+.dark-theme .ant-alert-info .ant-alert-description {
+  color: #1677ff !important;
+}
+
+/* List items (CartSummary) */
+.dark-theme .ant-list-item {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-list-item-meta-title,
+.dark-theme .ant-list-item-meta-title .ant-typography {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.dark-theme .ant-list-item-meta-description,
+.dark-theme .ant-list-item-meta-description .ant-typography {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* Tabs */
+.dark-theme .ant-tabs-tab {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dark-theme .ant-tabs-tab-active {
+  color: #1677ff;
+}
+
+.dark-theme .ant-tabs-tab:hover {
+  color: #0958d9;
+}
+
+.dark-theme .ant-tabs-ink-bar {
+  background-color: #1677ff;
+}
+
+/* Space and Divider */
+.dark-theme .ant-space-item {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-divider {
+  border-color: #303030;
+}
+
+.dark-theme .ant-divider-horizontal {
+  border-color: #303030;
+}
+
+.dark-theme .ant-divider-inner-text {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Tags */
+.dark-theme .ant-tag {
+  background-color: #1f1f1f;
+  border-color: #434343;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-tag-warning {
+  background-color: #2b2118;
+  border-color: #594214;
+  color: #d89614;
+}
+
+.dark-theme .ant-tag-success {
+  background-color: #162312;
+  border-color: #274916;
+  color: #49aa19;
+}
+
+.dark-theme .ant-tag-error {
+  background-color: #2a1215;
+  border-color: #58181c;
+  color: #e84749;
+}
+
+/* Tooltips */
+.dark-theme .ant-tooltip-inner {
+  background-color: #1f1f1f;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-tooltip-arrow-content {
+  background-color: #1f1f1f;
+}
+
+/* Modal */
+.dark-theme .ant-modal-content {
+  background-color: #1f1f1f;
+  border-color: #303030;
+}
+
+.dark-theme .ant-modal-header {
+  background-color: #1f1f1f;
+  border-bottom-color: #303030;
+}
+
+.dark-theme .ant-modal-title {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-modal-close {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dark-theme .ant-modal-close:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Input */
+.dark-theme .ant-input {
+  background-color: #1f1f1f;
+  border-color: #434343;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dark-theme .ant-input:hover,
+.dark-theme .ant-input:focus {
+  border-color: #1677ff;
+}
+
+/* Select */
+.dark-theme .ant-select-selector {
+  background-color: #1f1f1f !important;
+  border-color: #434343 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.dark-theme .ant-select-dropdown {
+  background-color: #1f1f1f;
+}
+
+.dark-theme .ant-select-item {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-select-item-option-active {
+  background-color: #2a2a2a;
+}
+
+.dark-theme .ant-select-item-option-selected {
+  background-color: #111b26;
+  color: #1677ff;
+}
+
+/* Dropdown */
+.dark-theme .ant-dropdown-menu {
+  background-color: #1f1f1f;
+}
+
+.dark-theme .ant-dropdown-menu-item {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-dropdown-menu-item:hover {
+  background-color: #2a2a2a;
+}
+
+/* Spin / Loading */
+.dark-theme .ant-spin-dot-item {
+  background-color: #1677ff;
+}
+
+.dark-theme .ant-spin-text {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Pagination */
+.dark-theme .ant-pagination-item {
+  background-color: #1f1f1f;
+  border-color: #434343;
+}
+
+.dark-theme .ant-pagination-item a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .ant-pagination-item-active {
+  background-color: #1677ff;
+  border-color: #1677ff;
+}
+
+.dark-theme .ant-pagination-item-active a {
+  color: #fff;
+}
+
+/* Badge */
+.dark-theme .ant-badge-count {
+  background-color: #ff4d4f;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE REFINEMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+  .ant-typography h1 {
+    font-size: 24px !important;
+  }
+  
+  .ant-btn {
+    font-size: 12px;
+  }
+  
+  .ant-card-body {
+    padding: 12px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .ant-space {
+    gap: 8px !important;
+  }
+  
+  .ant-card {
+    margin-bottom: 12px;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION PREFERENCE
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   حل نهائي لمشكلة Dark Mode - إجبار النصوص على الظهور
+   ============================================ */
+
+/* إجبار جميع النصوص على الظهور باللون الأبيض في Dark Mode */
+.dark-theme,
+.dark-theme .ant-card,
+.dark-theme .ant-card *,
+.dark-theme .ant-typography,
+.dark-theme .ant-typography *,
+.dark-theme span,
+.dark-theme div,
+.dark-theme p,
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme strong,
+.dark-theme b,
+.dark-theme label {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* استثناء الأزرار - تحافظ على لونها الأصلي */
+.dark-theme .ant-btn,
+.dark-theme .ant-btn * {
+  color: inherit !important;
+}
+
+.dark-theme .ant-btn-primary,
+.dark-theme .ant-btn-primary * {
+  color: #ffffff !important;
+}
+
+.dark-theme .ant-btn-dangerous,
+.dark-theme .ant-btn-dangerous * {
+  color: #ff4d4f !important;
+}
+
+/* استثناء الأسعار - تبقى زرقاء */
+.dark-theme .ant-card .ant-typography-secondary,
+.dark-theme .price,
+.dark-theme [class*="price"],
+.dark-theme span[class*="price"] {
+  color: #1677ff !important;
+}
+
+/* استثناء النص "Selected" - يبقى أزرق */
+.dark-theme [style*="color: #1677ff"],
+.dark-theme span[style*="#1677ff"] {
+  color: #1677ff !important;
+}
+
+/* تحسين وضوح النصوص الصغيرة */
+.dark-theme .ant-typography-secondary,
+.dark-theme .ant-text-secondary {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+/* تحسين خلفية البطاقات */
+.dark-theme .ant-card {
+  background-color: #1f1f1f !important;
+}
+
+/* تحسين النصوص في وضع hover */
+.dark-theme .ant-card-hoverable:hover .ant-typography {
+  color: #ffffff !important;
+}
