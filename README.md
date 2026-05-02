@@ -21,54 +21,7 @@ Available Scripts
 Command	Description
 npm run dev	Start development server
 npm run build	Build for production
-
- Architecture
-Technology Stack
-┌─────────────────────────────────────────────────────────────┐
-│                    Frontend Stack                            │
-├─────────────────────────────────────────────────────────────┤
-│  React 19           │ UI Framework                          │
-│  TypeScript         │ Type Safety                           │
-│  Ant Design 6       │ Component Library                     │
-│  Zustand 5          │ State Management                      │
-│  Vite 8             │ Build Tool                            │
-│  Axios              │ HTTP Client (optional)                │
-└─────────────────────────────────────────────────────────────┘
-High-Level Architecture
-┌─────────────────────────────────────────────────────────────┐
-│                        User Interface                        │
-│  ┌──────────────┐ ┌──────────────┐ ┌──────────────────────┐ │
-│  │CategorySection│ │ CartSummary  │ │   BudgetWarning      │ │
-│  │  (7 categories)│ │ (sticky)    │ │   (progress bar)     │ │
-│  └──────────────┘ └──────────────┘ └──────────────────────┘ │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      Zustand Store                           │
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │  Actions: select │ deselect │ undo │ redo │ clear      ││
-│  └─────────────────────────────────────────────────────────┘│
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │  State: selections │ totalCost │ remainingBudget       ││
-│  │         disabledItems │ error │ warning                 ││
-│  └─────────────────────────────────────────────────────────┘│
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │  History: past[ ] → present → future[ ]                 ││
-│  └─────────────────────────────────────────────────────────┘│
-└─────────────────────────────────────────────────────────────┘
-                              │
-              ┌───────────────┼───────────────┐
-              ▼               ▼               ▼
-┌──────────────────┐ ┌──────────────┐ ┌──────────────────────┐
-│  Budget Engine   │ │Compatibility │ │   History Engine     │
-│  • canAfford()   │ │   Engine     │ │  • saveToHistory()   │
-│  • getPercentage │ │ • getDisabled│ │  • undo()            │
-│  • getStatus     │ │ • isCompatible│ │  • redo()            │
-└──────────────────┘ └──────────────┘ └──────────────────────┘
-
 ---
-
 ## 1. Architecture Type: Feature-Based Modular
 
 ### Why Feature-Based?
@@ -86,14 +39,14 @@ Traditional folder structures organize by technical role (components/, container
 | **Reusability** | Low (tight coupling) | High (features are self-contained) |
 
 ### Structure Example
-src/features/bundle-builder/ ← Complete feature in one folder
-├── components/ ← UI components (only for this feature)
-├── store/ ← State management (feature-specific)
-├── logic/ ← Business rules (pure functions)
-├── services/ ← External communication
-├── hooks/ ← React hooks (feature-specific)
-├── types/ ← TypeScript definitions
-└── data/ ← Static data (mock products)
+src/features/bundle-builder/
+├── components/     # UI components (12 files)
+├── store/          # Zustand state management
+├── logic/          # Pure business functions
+├── services/       # localStorage, PDF export
+├── hooks/          # Custom React hooks
+├── types/          # TypeScript definitions
+└── data/           # Mock products (34 items, 7 categories)
 
 
 
